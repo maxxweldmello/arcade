@@ -1,19 +1,26 @@
 const correctPassword = "forever";
 
+document.getElementById("passwordForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // prevent page reload
+    checkPassword();
+});
+
 function checkPassword() {
     const input = document.getElementById("password-input").value;
     const message = document.getElementById("message");
 
     if (input === correctPassword) {
-        message.style.color = "#00ffcc";
-        message.textContent = "Access Granted...";
-        
+        message.style.color = "#22ca28ff";
+        message.textContent = "Access Granted ❤️";
+
+        document.querySelector("button").disabled = true;
+
         setTimeout(() => {
-            document.getElementById("password-screen").classList.add("hidden");
-            document.getElementById("success-screen").classList.remove("hidden");
-        }, 1000);
+            window.location.href = "chalkboard/chalkboard.html";
+        }, 1500);
+
     } else {
         message.style.color = "red";
-        message.textContent = "Access Denied!";
+        message.textContent = "Access Denied ❌";
     }
 }

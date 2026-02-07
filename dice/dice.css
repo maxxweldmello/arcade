@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: radial-gradient(circle at top, #1a1a1a, #0f0f0f);
+    font-family: 'Press Start 2P', monospace;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 500px;
+}
+
+h1 {
+    font-size: 18px;
+    color: #e63946;
+    margin-bottom: 30px;
+}
+
+/* Dice Section */
+.dice-area {
+    margin-bottom: 30px;
+}
+
+.dice {
+    font-size: 40px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+button {
+    padding: 14px 20px;
+    background: #e63946;
+    border: none;
+    color: white;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: #c1121f;
+    transform: translateY(-2px);
+}
+
+/* Mountain */
+.mountain {
+    position: relative;
+    height: 350px;
+    border: 2px solid #222;
+    border-radius: 10px;
+    margin: 30px 0;
+    background: linear-gradient(to top, #111 20%, #1a1a1a 100%);
+    overflow: hidden;
+}
+
+/* Heart at top */
+.heart {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 28px;
+}
+
+/* Character */
+.character {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    transition: bottom 0.5s ease;
+}
+
+/* Progress text */
+.progress-text {
+    font-size: 10px;
+    opacity: 0.8;
+}
+
+.heart {
+    animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.2); }
+    100% { transform: translateX(-50%) scale(1); }
+}

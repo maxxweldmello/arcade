@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chalkboard Challenge</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="chalkboard.css">
+</head>
+
+<body>
+
+    <div id="welcomeScreen" class="welcome-screen">
+        <h1>Welcome My Love ❤️</h1>
+        <p>Get ready for your first challenge...</p>
+    </div>
+
+    <div id="gameWrapper" class="game-wrapper" style="display: none;">
+        <h1>Chalkboard Challenge</h1>
+
+        <div class="stats">
+            <div>Score: <span id="score">0</span></div>
+            <div>Time: <span id="time">60</span>s</div>
+        </div>
+
+        <div class="word" id="scrambledWord"></div>
+
+        <input type="text" id="answer" placeholder="Type the word..." autocomplete="off">
+        <button id="submitBtn">Submit</button>
+
+        <div class="game-over" id="gameOver" style="display:none;">
+
+            <h2 class="level-title" id="resultTitle"></h2>
+            <h3 class="score-title" id="resultScore"></h3>
+            <p class="retry-text" id="resultMessage"></p>
+
+            <button id="retryBtn" class="next-btn" style="display:none;">
+                Retry Level 🔄
+            </button>
+
+            <button id="nextLevelBtn" class="next-btn" style="display:none;">
+                Go To Next Level 🎯
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="chalkboard.js"></script>
+</body>
+
+</html>

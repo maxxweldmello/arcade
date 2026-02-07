@@ -14,17 +14,13 @@
     <h1>🎮 LOVE ARCADE 🎮</h1>
     <p class="subtitle">Enter Secret Code</p>
 
-    <input type="password" id="password-input" placeholder="Password">
-    <button onclick="checkPassword()">Unlock</button>
+    <form id="passwordForm">
+        <input type="password" id="password-input" placeholder="Password">
+        <button type="submit">Unlock</button>
+    </form>
 
     <p id="message"></p>
 </div>
-
-<div class="screen hidden" id="success-screen">
-    <h2>Access Granted ❤️</h2>
-    <p>Welcome to my heart...</p>
-</div>
-
 <script src="script.js"></script>
 </body>
 </html>
