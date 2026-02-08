@@ -139,7 +139,7 @@ answerEl.addEventListener("keypress", function (e) {
 document.getElementById("retryBtn").addEventListener("click", resetGame);
 
 document.getElementById("nextLevelBtn").addEventListener("click", () => {
-    window.location.href = "../dice/dice.html";
+    window.location.href = "../walktotheheart/walktotheheart.html";
 });
 
 // Welcome delay logic
