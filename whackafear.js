@@ -6,7 +6,7 @@ const FEAR_POP_INTERVAL = 800;
 const GRID_SIZE = 9;
 const SCORE_INCREMENT = 10;
 const REDIRECT_DELAY_MS = 3000;
-const REDIRECT_URL = "../walktotheheart/walktotheheart.html";
+const REDIRECT_URL = "walktotheheart.html";
 
 // ==========================
 // DATA

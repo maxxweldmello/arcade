@@ -3,7 +3,7 @@
 // ===============================
 const PREVIEW_TIME_MS = 2000;
 const REDIRECT_DELAY_MS = 3000;
-const REDIRECT_URL = "../walktotheheart/walktotheheart.html";
+const REDIRECT_URL = "walktotheheart.html";
 const STORAGE_KEY = "memoryMaxCompleted";
 
 // ===============================

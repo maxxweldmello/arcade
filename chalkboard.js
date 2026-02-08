@@ -122,7 +122,7 @@ function levelComplete() {
     document.getElementById("nextLevelBtn").classList.add("hidden");
 
     setTimeout(() => {
-        window.location.href = "../walktotheheart/walktotheheart.html";
+        window.location.href = "walktotheheart.html";
     }, LEVEL_REDIRECT_DELAY_MS);
 }
 
