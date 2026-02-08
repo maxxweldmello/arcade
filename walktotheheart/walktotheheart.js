@@ -135,19 +135,19 @@ setTimeout(() => {
     // 🧠 Check if this step triggers a puzzle
     if (currentStep === 1) {
         localStorage.setItem("resumeStep", currentStep);
-        window.location.href = "/chalkboard/chalkboard.html";
+        window.location.href = "../chalkboard/chalkboard.html";
         return;
     }
 
     if (currentStep === 3) {
         localStorage.setItem("resumeStep", currentStep);
-        window.location.href = "/memorymax/memorymax.html";
+        window.location.href = "../memorymax/memorymax.html";
         return;
     }
 
     if (currentStep === 6) {
         localStorage.setItem("resumeStep", currentStep);
-        window.location.href = "/whackafear/whackafear.html";
+        window.location.href = "../whackafear/whackafear.html";
         return;
     }
 
