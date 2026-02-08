@@ -4,8 +4,8 @@
 
 body {
     margin: 0;
-    background: #0f0f0f;
-    color: #f5f5f5;
+    background: #0f0f0f; /* unchanged */
+    color: #eae6f5;
     font-family: 'Press Start 2P', monospace;
     display: flex;
     justify-content: center;
@@ -13,78 +13,140 @@ body {
     min-height: 100vh;
     text-align: center;
     padding: 60px 30px;
+    position: relative;
+}
+
+/* Very subtle pixel texture (not a color change) */
+body::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(#1a1a1a 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.15;
+    pointer-events: none;
 }
 
 .screen {
     width: 100%;
-    max-width: 100%; /* full width now */
+    max-width: 100%;
 }
 
 .hidden {
     display: none;
 }
 
+/* Subtle floating title */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
 h1 {
     font-size: clamp(36px, 10vw, 52px);
     margin-bottom: 60px;
-    color: #e63946;
+    color: #7a5cff;
     line-height: 1.4;
+    animation: float 5s ease-in-out infinite;
 }
 
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* space between icon and text */
+}
+
+.title-icon {
+    width: 150px;   /* small and proportional */
+    height: auto;
+    image-rendering: pixelated;
+}
+
+/* Subtitle */
 .subtitle {
     font-size: clamp(18px, 6vw, 22px);
     margin-bottom: 70px;
-    color: #cccccc;
+    color: #b8aee0;
     letter-spacing: 1px;
+    position: relative;
 }
 
+/* Small decorative divider */
+.subtitle::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: #3a2d82;
+    margin: 25px auto 0;
+}
+
+/* Input */
 input {
     padding: 28px;
     width: 100%;
     background: transparent;
-    border: 2px solid #333;
-    color: white;
+    border: 2px solid #2a2a2a;
+    color: #eae6f5;
     font-size: clamp(22px, 6vw, 24px);
     text-align: center;
     outline: none;
-    transition: 0.3s ease;
+    transition: border-color 0.3s ease;
+    caret-color: #7a5cff; /* subtle detail */
 }
 
 input:focus {
-    border-color: #e63946;
+    border-color: #5c4db5;
 }
 
+/* Button */
 button {
     margin-top: 40px;
     padding: 28px;
     width: 100%;
     font-size: clamp(22px, 6vw, 24px);
-    background: #e63946;
+    background: #4b3aa7;
     border: none;
-    color: white;
+    color: #ffffff;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: background 0.3s ease, transform 0.1s ease;
 }
 
 button:hover {
-    background: #c1121f;
+    background: #3a2d82;
+}
+
+/* Tiny press feedback */
+button:active {
+    transform: translateY(2px);
 }
 
 #success-screen h2 {
     font-size: clamp(40px, 12vw, 64px);
-    color: #e63946;
+    color: #7a5cff;
     margin-bottom: 40px;
     line-height: 1.4;
 }
 
 #success-screen p {
     font-size: clamp(20px, 6vw, 28px);
-    color: #cccccc;
+    color: #b8aee0;
 }
-
 
 #message {
     margin-top: 40px;
     font-size: clamp(18px, 5vw, 20px);
-    color: #e63946;
+    color: #7a5cff;
 }
+
+/* Optional version text (add in HTML if you want) */
+/*
+.version {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 10px;
+    color: #444;
+}
+*/

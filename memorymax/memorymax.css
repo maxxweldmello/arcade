@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #0f0f0f;
+    color: #eae6f5;
+    font-family: 'Press Start 2P', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 600px;
+}
+
+h1 {
+    color: #7a5cff;
+    margin-bottom: 40px;
+    font-size: clamp(22px, 6vw, 32px);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.card {
+    aspect-ratio: 1/1;
+    background: #1a1a1a;
+    border: 2px solid #2a2a2a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-family: 'VT323', monospace;
+    font-size: 26px;
+    transition: 0.2s ease;
+}
+
+.card.revealed {
+    background: #4b3aa7;
+    color: white;
+}
+
+.card.matched {
+    background: #222;
+    opacity: 0.6;
+    cursor: default;
+}
+
+.message {
+    margin-top: 30px;
+    font-family: 'VT323', monospace;
+    font-size: 22px;
+    color: #7a5cff;
+}

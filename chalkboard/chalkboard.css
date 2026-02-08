@@ -1,3 +1,7 @@
+/* =========================
+   GLOBAL
+========================= */
+
 * {
     box-sizing: border-box;
 }
@@ -5,7 +9,7 @@
 body {
     margin: 0;
     background: #0f0f0f;
-    color: white;
+    color: #eae6f5;
     font-family: 'Press Start 2P', monospace;
     display: flex;
     justify-content: center;
@@ -15,16 +19,28 @@ body {
     text-align: center;
 }
 
+.hidden {
+    display: none;
+}
+
 .game-wrapper {
     width: 100%;
     max-width: 650px;
 }
 
+/* =========================
+   HEADINGS
+========================= */
+
 h1 {
     font-size: clamp(26px, 6vw, 38px);
-    color: #e63946;
+    color: #7a5cff;
     margin-bottom: 50px;
 }
+
+/* =========================
+   WELCOME SCREEN
+========================= */
 
 .welcome-screen {
     position: fixed;
@@ -33,39 +49,33 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0 40px;
     text-align: center;
-    animation: fadeIn 0.8s ease-in-out;
 }
 
 .welcome-screen h1 {
-    font-size: clamp(15px, 5vw, 38px);
-    color: #e63946;
-    margin-bottom: 18px;
-    letter-spacing: 2px;
-    text-shadow: 0 0 12px rgba(230, 57, 70, 0.6);
-    animation: floatText 2s ease-in-out infinite alternate;
-    line-height: 1.3;
+    font-family: 'VT323', monospace;
+    font-size: 4.5vw;
+    color: #7a5cff;
+    margin-bottom: 22px;
+    letter-spacing: 1px;
+    line-height: 1.6;
+    white-space: nowrap;
 }
 
 .welcome-screen p {
-    font-size: clamp(16px, 4vw, 20px);
-    color: #dddddd;
-    opacity: 0.9;
-    letter-spacing: 1px;
-    line-height: 1.5;
+    font-family: 'VT323', monospace;
+    font-size: 3.5vw;
+    color: #b8aee0;
+    opacity: 0.95;
+    letter-spacing: 0.5px;
+    line-height: 1.8;
+    white-space: nowrap;
 }
 
-/* Fade animation */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* Soft floating animation */
-@keyframes floatText {
-    from { transform: translateY(0px); }
-    to { transform: translateY(-6px); }
-}
+/* =========================
+   STATS
+========================= */
 
 .stats {
     display: flex;
@@ -75,127 +85,112 @@ h1 {
     opacity: 0.8;
 }
 
+/* =========================
+   WORD DISPLAY
+========================= */
+
 .word {
     font-size: 52px;
     margin: 60px 0;
     letter-spacing: 6px;
     white-space: nowrap;
-    text-align: center;
     transition: font-size 0.2s ease;
 }
 
+/* =========================
+   INPUT
+========================= */
 
 input {
     width: 100%;
     padding: 26px;
     font-size: clamp(18px, 5vw, 22px);
     text-align: center;
-    border: 2px solid #333;
+    border: 2px solid #2a2a2a;
     background: transparent;
-    color: white;
-    margin-top: 30px;
-    margin-bottom: 25px;
+    color: #eae6f5;
+    margin: 30px 0 25px;
     outline: none;
-    transition: 0.3s ease;
+    transition: border-color 0.3s ease;
 }
 
 input:focus {
-    border-color: #e63946;
+    border-color: #5c4db5;
 }
+
+/* =========================
+   BUTTONS (GLOBAL)
+========================= */
 
 button {
     width: 100%;
     padding: 26px;
     font-size: clamp(18px, 5vw, 22px);
-    background: #e63946;
+    background: #4b3aa7;
     border: none;
     color: white;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: background 0.25s ease, transform 0.15s ease;
 }
 
 button:hover {
-    background: #c1121f;
+    background: #3a2d82;
 }
 
-.game-over {
-    margin-top: 50px;
-    font-size: clamp(18px, 4vw, 24px);
-}
-
-.retry-text {
-    font-size: clamp(16px, 4vw, 20px);
-    color: #bbbbbb;
-    margin-bottom: 25px;
-    opacity: 0.85;
+button:active {
+    transform: translateY(2px);
 }
 
 /* =========================
-   CLEAN GAME OVER SECTION
+   GAME OVER SECTION
 ========================= */
 
 .game-over {
     margin-top: 60px;
     padding-top: 40px;
     border-top: 1px solid #222;
-    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 18px;
 }
 
-/* Main title */
-.level-title {
-    font-size: 28px;
-    color: #e63946;
-    letter-spacing: 2px;
-    margin: 0;
-}
+/* Game Over Typography (Smaller + VT323) */
 
-/* Score */
-.score-title {
-    font-size: 16px;
-    opacity: 0.8;
-    margin: 0;
-}
-
-/* Small message */
+.level-title,
+.score-title,
 .retry-text {
-    font-size: 14px;
-    opacity: 0.6;
-    margin: 0 0 20px 0;
+    font-family: 'VT323', monospace;
+    margin: 0;
 }
 
-/* Buttons container look */
+.level-title {
+    font-size: 24px;
+    color: #7a5cff;
+    letter-spacing: 1px;
+}
+
+.score-title {
+    font-size: 18px;
+    opacity: 0.85;
+}
+
+.retry-text {
+    font-size: 16px;
+    opacity: 0.7;
+}
+
+/* Game Over Buttons */
+
 #retryBtn,
 #nextLevelBtn {
-    background: #e63946;
-    border: none;
-    color: white;
-    font-family: 'Press Start 2P', monospace;
-    font-size: 14px;
-    padding: 14px 24px;
-    cursor: pointer;
-    transition: 0.25s ease;
-}
-
-/* Retry smaller */
-#retryBtn {
     width: auto;
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    padding: 12px 22px;
     border-radius: 6px;
-    opacity: 0.9;
 }
 
-/* Next Level slightly wider */
 #nextLevelBtn {
-    border-radius: 6px;
     margin-top: 10px;
-}
-
-/* Hover effect */
-#retryBtn:hover,
-#nextLevelBtn:hover {
-    background: #c1121f;
-    transform: translateY(-2px);
 }

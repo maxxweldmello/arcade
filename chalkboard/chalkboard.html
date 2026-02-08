@@ -6,18 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chalkboard Challenge</title>
 
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="chalkboard.css">
 </head>
 
 <body>
 
     <div id="welcomeScreen" class="welcome-screen">
-        <h1>Welcome My Love ❤️</h1>
-        <p>Get ready for your first challenge...</p>
+        <h1>Hey there.. My fav Teacher ❤️</h1>
+        <p>You’ve given enough tests… Now it’s your turn.</p>
     </div>
 
-    <div id="gameWrapper" class="game-wrapper" style="display: none;">
+    <div id="gameWrapper" class="game-wrapper hidden">
         <h1>Chalkboard Challenge</h1>
 
         <div class="stats">
@@ -30,17 +33,17 @@
         <input type="text" id="answer" placeholder="Type the word..." autocomplete="off">
         <button id="submitBtn">Submit</button>
 
-        <div class="game-over" id="gameOver" style="display:none;">
+        <div class="game-over hidden" id="gameOver">
 
             <h2 class="level-title" id="resultTitle"></h2>
             <h3 class="score-title" id="resultScore"></h3>
             <p class="retry-text" id="resultMessage"></p>
 
-            <button id="retryBtn" class="next-btn" style="display:none;">
+            <button id="retryBtn" class="next-btn hidden">
                 Retry Level 🔄
             </button>
 
-            <button id="nextLevelBtn" class="next-btn" style="display:none;">
+            <button id="nextLevelBtn" class="next-btn hidden">
                 Go To Next Level 🎯
             </button>
 

@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #0f0f0f;
+    color: #eae6f5;
+    font-family: 'Press Start 2P', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 700px;
+}
+
+h1 {
+    color: #7a5cff;
+    margin-bottom: 40px;
+    font-size: clamp(22px, 6vw, 34px);
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.hole {
+    height: 100px;
+    border: 2px solid #2a2a2a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.2s ease;
+    font-family: 'VT323', monospace;
+    font-size: 22px;
+}
+
+.hole.active {
+    background: #4b3aa7;
+    color: white;
+}
+
+.hole:hover {
+    border-color: #7a5cff;
+}
+
+.game-over {
+    margin-top: 40px;
+    font-family: 'VT323', monospace;
+}
+
+.game-over h2 {
+    font-size: 28px;
+    color: #7a5cff;
+}
+
+.game-over p {
+    font-size: 20px;
+    opacity: 0.8;
+}
+
+button {
+    margin-top: 20px;
+    padding: 14px 24px;
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    background: #4b3aa7;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #3a2d82;
+}
