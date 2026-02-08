@@ -16,7 +16,7 @@ function checkPassword() {
         document.querySelector("button").disabled = true;
 
         setTimeout(() => {
-            window.location.href = "welcome/welcome.html";
+            window.location.href = "welcome.html";
         }, 1500);
 
     } else {

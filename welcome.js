@@ -11,5 +11,5 @@ lines.forEach((line, index) => {
 
 // After all lines appear, redirect
 setTimeout(() => {
-    window.location.href = "../walktotheheart/walktotheheart.html";
+    window.location.href = "walktotheheart.html";
 }, delay + 1500);
