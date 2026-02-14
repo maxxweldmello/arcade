@@ -1,8 +1,8 @@
 // ===============================
 // CONFIGURATION
 // ===============================
-const GAME_TIME_SECONDS = 60;
-const TIMER_INTERVAL_MS = 1000;
+// const GAME_TIME_SECONDS = 60;
+// const TIMER_INTERVAL_MS = 1000;
 const WELCOME_DELAY_MS = 5000;
 const LEVEL_REDIRECT_DELAY_MS = 3000;
 const SCORE_INCREMENT = 10;
@@ -12,35 +12,27 @@ const SCORE_INCREMENT = 10;
 // ===============================
 const words = [
   "LOVE",
-  "TRUST",
-  "COMMITMENT",
-  "FOREVER",
-  "LOYALTY",
-  "RESPECT",
-  "PASSION",
-  "HONESTY",
-  "SUPPORT",
-  "TOGETHER",
-  "UNDERSTANDING",
-  "PATIENCE",
   "CARE",
-  "PROMISE",
-  "HAPPINESS"
+  "TRUST",
+  "SMILE",
+  "HAPPY",
+  "HUG",
+  "KISS"
 ];
 
 let availableWords = [...words];
 
 let currentWord = "";
 let score = 0;
-let timeLeft = GAME_TIME_SECONDS;
-let timer;
+// let timeLeft = GAME_TIME_SECONDS;
+// let timer;
 
 // ===============================
 // DOM REFERENCES
 // ===============================
 const scrambledWordEl = document.getElementById("scrambledWord");
 const scoreEl = document.getElementById("score");
-const timeEl = document.getElementById("time");
+// const timeEl = document.getElementById("time");
 const answerEl = document.getElementById("answer");
 const gameOverEl = document.getElementById("gameOver");
 const submitBtn = document.getElementById("submitBtn");
@@ -93,20 +85,20 @@ function checkAnswer() {
     }
 }
 
-function startTimer() {
-    timer = setInterval(() => {
-        timeLeft--;
-        timeEl.textContent = timeLeft;
+// function startTimer() {
+//     timer = setInterval(() => {
+//         timeLeft--;
+//         timeEl.textContent = timeLeft;
 
-        if (timeLeft <= 0) {
-            clearInterval(timer);
-            endGame();
-        }
-    }, TIMER_INTERVAL_MS);
-}
+//         if (timeLeft <= 0) {
+//             clearInterval(timer);
+//             endGame();
+//         }
+//     }, TIMER_INTERVAL_MS);
+// }
 
 function endGame() {
-    clearInterval(timer);
+    // clearInterval(timer);
 
     scrambledWordEl.textContent = "";
     answerEl.style.display = "none";
@@ -123,7 +115,7 @@ function endGame() {
 }
 
 function levelComplete() {
-    clearInterval(timer);
+    // clearInterval(timer);
 
     scrambledWordEl.textContent = "";
     answerEl.style.display = "none";
@@ -144,14 +136,14 @@ function levelComplete() {
 }
 
 function resetGame() {
-    clearInterval(timer);
+    // clearInterval(timer);
 
     score = 0;
-    timeLeft = GAME_TIME_SECONDS;
+    // timeLeft = GAME_TIME_SECONDS;
     availableWords = [...words];
 
     scoreEl.textContent = score;
-    timeEl.textContent = timeLeft;
+    // timeEl.textContent = timeLeft;
 
     // Completely reset game over section
     gameOverEl.classList.add("hidden");
@@ -174,7 +166,7 @@ function resetGame() {
 
 function startGame() {
     newWord();
-    startTimer();
+    // startTimer();
 }
 
 // ===============================
