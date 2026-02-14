@@ -1,4 +1,4 @@
-const correctPassword = "forever";
+const correctPassword = "1125";
 
 document.getElementById("passwordForm").addEventListener("submit", function(e) {
     e.preventDefault(); // prevent page reload

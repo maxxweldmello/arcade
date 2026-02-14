@@ -11,7 +11,14 @@
 </head>
 <body>
 
-<div class="game-container">
+    <div id="welcomeScreen" class="welcome-screen">
+    <p class="welcome-line">Level 3: Whack-A-Fear 💥</p>
+    <h3 class="welcome-line">Hey brave heart ❤️</h3>
+    <p class="welcome-line">Some fears try to hold us back…</p>
+    <p class="welcome-line">But together, we can defeat them all 💜</p>
+</div>
+
+<div class="game-container hidden">
 
     <h1>Whack-A-Fear</h1>
 
@@ -20,12 +27,16 @@
         <div>Time: <span id="time">30</span>s</div>
     </div>
 
+<div class="game-area">
+
     <div class="grid" id="grid"></div>
 
     <div class="game-over hidden" id="gameOver">
         <h2 id="resultTitle"></h2>
         <p id="resultMessage"></p>
     </div>
+
+</div>
 
 </div>
 

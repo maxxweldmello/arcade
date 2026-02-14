@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Memory Max</title>
@@ -9,18 +10,28 @@
 
     <link rel="stylesheet" href="memorymax.css">
 </head>
-<body>
 
-<div class="game-container">
+    <div id="welcomeScreen" class="welcome-screen">
+        <p class="welcome-line">Level 2: Memory Max 🧠</p>
+        <h3 class="welcome-line">Hey there... My Smart Girl ❤️</h3>
+        <p class="welcome-line">You’ve matched many lessons in class…</p>
+        <p class="welcome-line">Now match the words that matter 💜</p>
+    </div>
 
-    <h1>Memory Max</h1>
 
-    <div class="grid" id="grid"></div>
+    <div class="game-container hidden">
+        <h1>Memory Max</h1>
+        <div class="grid" id="grid"></div>
+    </div>
 
-    <div class="message hidden" id="message"></div>
+    <div class="message-overlay hidden" id="message">
+        <div class="message-box"></div>
+    </div>
 
-</div>
+    <!-- <div class="message-overlay" id="message">
+        <div class="message-box">You've Cleared this Level 💜</div>
+    </div> -->
 
-<script src="memorymax.js"></script>
+
+    <script src="memorymax.js"></script>
 </body>
-</html>

@@ -3,22 +3,24 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chalkboard Challenge</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
 
     <link rel="stylesheet" href="chalkboard.css">
 </head>
 
 <body>
 
-    <div id="welcomeScreen" class="welcome-screen">
-        <h1>Hey there.. My fav Teacher ❤️</h1>
-        <p>You’ve given enough tests… Now it’s your turn.</p>
-    </div>
+<div id="welcomeScreen" class="welcome-screen">
+    <p class="welcome-line">Level 1: The Chalkboard🖋</p>
+    <h3 class="welcome-line">Hey there.. My Fav Teacher ❤️</h3>
+    <p class="welcome-line">You’ve given enough tests… Now it’s your turn.</p>
+</div>
 
     <div id="gameWrapper" class="game-wrapper hidden">
         <h1>Chalkboard Challenge</h1>
@@ -40,18 +42,18 @@
             <p class="retry-text" id="resultMessage"></p>
 
             <button id="retryBtn" class="next-btn hidden">
-                Retry Level 🔄
+                <span class="fa-solid fa-rotate-right"></span> Retry Level
             </button>
 
             <button id="nextLevelBtn" class="next-btn hidden">
-                Go To Next Level 🎯
+                Go To Next Level <span class="fa-solid fa-arrow-right"></span>
             </button>
-
-        </div>
+                    </div>
 
     </div>
 
     <script src="chalkboard.js"></script>
+
 </body>
 
 </html>

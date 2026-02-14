@@ -5,24 +5,31 @@
 body {
     margin: 0;
     background: #0f0f0f;
-    color: #7a5cff;
+    color: #f3ecff; /* softer readable white */
     font-family: 'Press Start 2P', monospace;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     text-align: center;
+    padding: 20px;
 }
 
 .welcome-container {
     width: 90%;
+    max-width: 700px;
+    padding: 40px 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
 }
 
 .line {
     opacity: 0;
-    margin: 30px 0;
-    font-size: clamp(16px, 4vw, 22px);
+    margin: 35px 0;
+    font-size: clamp(18px, 3.5vw, 24px);
+    line-height: 1.6;
     transition: opacity 1.5s ease;
+    letter-spacing: 1px;
 }
 
 .line.visible {
@@ -30,5 +37,6 @@ body {
 }
 
 .final {
-    color: #b8aee0;
+    color: #7a5cff;
+    text-shadow: 0 0 15px rgba(255, 158, 207, 0.5);
 }

@@ -3,14 +3,31 @@
 // ===============================
 const GAME_TIME_SECONDS = 60;
 const TIMER_INTERVAL_MS = 1000;
-const WELCOME_DELAY_MS = 3000;
+const WELCOME_DELAY_MS = 5000;
 const LEVEL_REDIRECT_DELAY_MS = 3000;
 const SCORE_INCREMENT = 10;
 
 // ===============================
 // DATA
 // ===============================
-const words = ["LOVE"];
+const words = [
+  "LOVE",
+  "TRUST",
+  "COMMITMENT",
+  "FOREVER",
+  "LOYALTY",
+  "RESPECT",
+  "PASSION",
+  "HONESTY",
+  "SUPPORT",
+  "TOGETHER",
+  "UNDERSTANDING",
+  "PATIENCE",
+  "CARE",
+  "PROMISE",
+  "HAPPINESS"
+];
+
 let availableWords = [...words];
 
 let currentWord = "";
@@ -97,9 +114,9 @@ function endGame() {
 
     gameOverEl.classList.remove("hidden");
 
-    document.getElementById("resultTitle").textContent = "Game Over ❤️";
+    document.getElementById("resultTitle").textContent = "Not Quite There Yet 🫂";
     document.getElementById("resultScore").textContent = `Final Score: ${score}`;
-    document.getElementById("resultMessage").textContent = "You can do better, my champion 😌";
+    document.getElementById("resultMessage").textContent = "Try again… win the game & win my heart 😉";
 
     document.getElementById("retryBtn").classList.remove("hidden");
     document.getElementById("nextLevelBtn").classList.add("hidden");
@@ -114,9 +131,9 @@ function levelComplete() {
 
     gameOverEl.classList.remove("hidden");
 
-    document.getElementById("resultTitle").textContent = "Level 1 Complete ❤️";
-    document.getElementById("resultScore").textContent = `Final Score: ${score}`;
-    document.getElementById("resultMessage").textContent = "";
+    document.getElementById("resultTitle").textContent = "Level 1 Cleared 💜";
+    document.getElementById("resultScore").textContent = `You Scored: ${score}`;
+    document.getElementById("resultMessage").textContent = "Looks like the teacher passed the test 😉";
 
     document.getElementById("retryBtn").classList.add("hidden");
     document.getElementById("nextLevelBtn").classList.add("hidden");
@@ -181,9 +198,22 @@ document.getElementById("nextLevelBtn").addEventListener("click", () => {
 // WELCOME LOGIC
 // ===============================
 window.addEventListener("load", () => {
+
+    const welcomeLines = document.querySelectorAll(".welcome-line");
+    let delay = 0;
+
+    welcomeLines.forEach((line) => {
+        setTimeout(() => {
+            line.classList.add("visible");
+        }, delay);
+
+        delay += 2000; // time between lines
+    });
+
+    // After animation finishes
     setTimeout(() => {
         welcomeScreen.style.display = "none";
         gameWrapper.classList.remove("hidden");
         startGame();
-    }, WELCOME_DELAY_MS);
+    }, delay + 1500);
 });

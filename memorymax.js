@@ -10,8 +10,9 @@ const STORAGE_KEY = "memoryMaxCompleted";
 // DATA
 // ===============================
 const symbols = [
-    "LOVE", "TRUST", "HOPE", "FAITH",
-    "CARE", "SMILE", "PEACE", "JOY"
+    "DARLING", 
+    "SWEETHEART", "BABY", "SHOKRI",
+    "BABU", "DARLU", "CUTIE PIE", "SWEETIE PIE"
 ];
 
 let cards = [];
@@ -24,7 +25,8 @@ let matchedCount = 0;
 // DOM
 // ===============================
 const grid = document.getElementById("grid");
-const messageEl = document.getElementById("message");
+const messageOverlay = document.getElementById("message");
+const messageBox = document.querySelector(".message-box");
 
 // ===============================
 // INITIALIZE
@@ -113,8 +115,8 @@ function resetTurn() {
 function levelComplete() {
     lockBoard = true;
 
-    messageEl.textContent = "You've Cleared this Level 💜";
-    messageEl.classList.remove("hidden");
+    messageBox.textContent = "Looks like the Smart Girl passed the memory test too ❤️";
+    messageOverlay.classList.remove("hidden");
 
     localStorage.setItem(STORAGE_KEY, "true");
 
@@ -133,4 +135,25 @@ function shuffle(array) {
 // ===============================
 // START
 // ===============================
-window.addEventListener("load", initGame);
+window.addEventListener("load", () => {
+
+    const welcomeScreen = document.getElementById("welcomeScreen");
+    const gameContainer = document.querySelector(".game-container");
+    const welcomeLines = document.querySelectorAll(".welcome-line");
+
+    let delay = 0;
+
+    welcomeLines.forEach((line) => {
+        setTimeout(() => {
+            line.classList.add("visible");
+        }, delay);
+        delay += 2000;
+    });
+
+    // After welcome animation
+    setTimeout(() => {
+        welcomeScreen.style.display = "none";
+        gameContainer.classList.remove("hidden");
+        initGame();
+    }, delay + 1500);
+});

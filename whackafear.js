@@ -100,6 +100,7 @@ function startGame() {
     scoreEl.textContent = score;
     timeEl.textContent = timeLeft;
 
+    grid.classList.remove("hidden");
     gameOverEl.classList.add("hidden");
 
     createGrid();
@@ -123,6 +124,7 @@ function startGame() {
 function endGame() {
     clearInterval(gameTimer);
     clearInterval(popTimer);
+    
 
     if (activeHole) {
         activeHole.classList.remove("active");
@@ -130,8 +132,11 @@ function endGame() {
         activeHole = null;
     }
 
-    resultTitle.textContent = "Time’s Up!";
-    resultMessage.textContent = `You defeated ${score / SCORE_INCREMENT} fears 💜`;
+    grid.classList.add("hidden");
+
+    resultTitle.textContent = "Congratulations! 😘";
+    resultMessage.textContent = `You conquered ${score / SCORE_INCREMENT} fears. 💜  Every tap was courage in action.`;
+
 
     gameOverEl.classList.remove("hidden");
 
@@ -143,9 +148,30 @@ function endGame() {
 // ==========================
 // AUTO START
 // ==========================
-window.addEventListener("load", startGame);
+// window.addEventListener("load", startGame);
 
-// Fix grid disappearing when using back button
-window.addEventListener("pageshow", () => {
-    startGame();
+window.addEventListener("load", () => {
+    const welcomeScreen = document.getElementById("welcomeScreen");
+    const gameContainer = document.querySelector(".game-container");
+    const welcomeLines = document.querySelectorAll(".welcome-line");
+
+    let delay = 0;
+
+    welcomeLines.forEach((line) => {
+        setTimeout(() => {
+            line.classList.add("visible");
+        }, delay);
+        delay += 2000;
+    });
+
+    setTimeout(() => {
+        welcomeScreen.style.display = "none";
+        gameContainer.classList.remove("hidden");
+        startGame();
+    }, delay + 1500);
 });
+
+// // Fix grid disappearing when using back button
+// window.addEventListener("pageshow", () => {
+//     startGame();
+// });

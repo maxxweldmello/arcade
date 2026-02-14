@@ -1,15 +1,14 @@
 const lines = document.querySelectorAll(".line");
 let delay = 0;
 
-lines.forEach((line, index) => {
+lines.forEach((line) => {
     setTimeout(() => {
         line.classList.add("visible");
     }, delay);
 
-    delay += 2000; // time between sentences
+    delay += 2500; // slower line reveal
 });
 
-// After all lines appear, redirect
 setTimeout(() => {
     window.location.href = "walktotheheart.html";
-}, delay + 1500);
+}, delay + 5000); // longer emotional pause

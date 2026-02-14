@@ -25,13 +25,13 @@ const steps = [
 
 /* DIALOGUES */
 const dialogues = [
-    { boy: "Welcome my love 💜", girl: "I’m coming to you." },
-    { boy: "The climb won’t be easy.", girl: "Nothing is hard when it’s you." },
-    { boy: "Careful now...", girl: "I trust myself." },
-    { boy: "You’re glowing tonight.", girl: "Because you’re waiting." },
-    { boy: "Almost there...", girl: "I can see you clearly now." },
-    { boy: "Just a little more.", girl: "I won’t stop." },
-    { boy: "Final jump!", girl: "Catch me ❤️" }
+    { boy: "Darluuu. Mi varti hay. Varti yeee. But aaram shi.", girl: "Sweetuuu. Tuje nana chi tang. Awre varti kaisa chadlas. Pek ailu." },
+    { boy: "Aaya first challange solved jhaila.", girl: "Hehe, ha solve jhaila." },
+    { boy: "Sambhalun Babuu", girl: "Ha Babu, sambhalun shish" },
+    { boy: "Aaya maji baby tar kawri smart hay.", girl: "Ofc darling mi te smart hay. hehe." },
+    { boy: "Babu begin yeee...", girl: "Ha babu aata udun tar nai yeu shaktu." },
+    { boy: "Darluuu. Ye last challange hay. All the best.", girl: "Aayaaa. Bara bara." },
+    { boy: "Aayaaa Babu pochliii! 😘", girl: "Aayaaaa Baby mi pochluuu! 🥰" }
 ];
 
 /* Place player */
@@ -95,19 +95,49 @@ async function showDialogue(stepIndex) {
     await typeText(girlText, convo.girl);
 
     // Stay visible for a moment
-    await new Promise(r => setTimeout(r, 2500));
+    // await new Promise(r => setTimeout(r, 2500));
+
+    // // Fade out both
+    // boyBubble.classList.remove("show");
+    // girlBubble.classList.remove("show");
+
+    // // Wait for fade animation to finish
+    // await new Promise(r => setTimeout(r, 400));
+
+    // boyBubble.classList.add("hidden");
+    // girlBubble.classList.add("hidden");
+
+    // dialogueActive = false;
+
+    // Wait for user click to close dialogue
+    await waitForClick();
 
     // Fade out both
     boyBubble.classList.remove("show");
     girlBubble.classList.remove("show");
 
-    // Wait for fade animation to finish
     await new Promise(r => setTimeout(r, 400));
 
     boyBubble.classList.add("hidden");
     girlBubble.classList.add("hidden");
 
     dialogueActive = false;
+
+}
+
+function waitForClick() {
+    return new Promise((resolve) => {
+
+        function handleClick() {
+            document.removeEventListener("click", handleClick);
+            resolve();
+        }
+
+        // Small delay so it doesn’t instantly close
+        setTimeout(() => {
+            document.addEventListener("click", handleClick);
+        }, 100);
+    });
 }
 
 /* Jump Logic */
@@ -151,11 +181,15 @@ setTimeout(() => {
         return;
     }
 
-    showDialogue(currentStep - 1);
+    showDialogue(currentStep);
 
     if (currentStep === steps.length - 1) {
-        setTimeout(() => {
-            alert("You reached him ❤️✨");
+        setTimeout(async () => {
+
+            await new Promise(r => setTimeout(r, 1500)); // small emotional pause
+
+            window.location.href = "finalmessage.html";
+
         }, 500);
     }
 
@@ -176,7 +210,9 @@ window.onload = () => {
 
         // Optional: show dialogue again after returning
         setTimeout(() => {
-            showDialogue(currentStep - 1);
+            if (currentStep > 0) {
+                showDialogue(currentStep);
+            }
         }, 400);
 
     } else {
